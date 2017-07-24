@@ -12,7 +12,7 @@ console.log(`10 * 5 = ${num1 * num2}`)
 
 // tagged template literals: running a template string through a function
 // tag: a function with the ability to interpret and process a template
-function writeSomething(strings, ...values) { // rest operator will be covered later
+function writeSomething(strings, ...values) { // rest parameter will be covered later
     // do stuff
     console.log(strings, values)
     let str = '';
