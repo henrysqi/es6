@@ -10,7 +10,7 @@ function test1() {
     if (true) {
         var insideIf = 5;
     }
-    console.log(5);
+    console.log(insideIf);
 }
 test1();
 

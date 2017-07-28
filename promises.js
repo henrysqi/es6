@@ -20,7 +20,6 @@ var p3 = new Promise((res, rej) => {
         rej("Bad Value");
     }
 });
-
 p3.then(res => console.log(res), err => console.log(err));
 
 // should add catch to chain to handle errors
@@ -32,5 +31,36 @@ var p4 = new Promise((res, rej) => {
         res("Can Vote");
     }
 })
-
 p4.then(res => console.log(res)).catch(err => console.log(err))
+
+
+// http req
+function getData(method, url){
+    return new Promise(function(resolve, reject){
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = function(){
+            if(this.status >= 200 && this.status < 300){
+                resolve(xhr.response);
+            }else {
+                reject({
+                    status: this.status,
+                    statusText: xhr.statusText
+                });
+            }
+        };
+        xhr.onerror = function(){
+            reject({
+                status: this.status,
+                statusText: xhr.statusText
+            });
+        };
+        xhr.send();
+    });
+}
+
+getData('GET', 'https://swapi.co/api/people/').then(function(data){
+    console.log(data)
+}).catch(function(err){
+    console.log(err);
+});

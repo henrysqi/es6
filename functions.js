@@ -23,7 +23,7 @@ function getSum(...values) {
     }
     console.log(`Sum is ${sum}`);
 }
-getSum(1,2,3,4);
+getSum(1,2,3,4,5);
 
 // spread operator: spreads an array out
 getSum(...[1,2,3,4,5]); // can also pass in arrays
@@ -41,6 +41,8 @@ inspectArgs(...[1,2,3,4,5]);
 const getSum = (num1, num2) => num1 + num2;
 getSum(5,9);
 
+const whatsMyName = name => `my name is ${name}`;
+
 const doubleSum = (num1, num2) => {
     let sum = num1 + num2;
     return sum * 2;
@@ -51,4 +53,24 @@ doubleSum(5,9);
 let arr = [1,2,3,4,5,6];
 let evens = arr.filter((elem) => elem % 2 === 0);
 console.log(evens);
+
+// lexical this
+function Garden(flowers) {
+	this.flowers = flowers;
+	this.getFlowers = function() {
+		console.log(this.flowers);
+	}
+	this.growFlowers = function() {
+		setTimeout(function() {
+			console.log("Before add flower")
+			this.flowers++;
+			console.log(this.flowers)
+			console.log(this)
+		}, 0)
+	}
+}
+
+const myGarden = new Garden(123);
+myGarden.getFlowers();
+myGarden.growFlowers();
 

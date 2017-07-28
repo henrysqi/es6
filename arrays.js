@@ -6,7 +6,7 @@ console.log(array1);
 let array2 = Array.from("word");
 console.log(array2);
 
-// use array-from to manipulate values
+// use array-from to manipulate values, mapFn as second param
 let array3 = Array.from(array1, (value) => value * 2);
 console.log(array3);
 

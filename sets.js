@@ -2,6 +2,8 @@
 let randSet = new Set();
 randSet.add(10);
 randSet.add("word");
+randSet.add("hellloooo");
+randSet.add(2198);
 
 // check if a set contains a value
 console.log(randSet.has(10));
